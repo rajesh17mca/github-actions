@@ -1,16 +1,15 @@
 name: Python package
 on: [push]
 
-env:
-  ENV_SEC: ${{ secrets.ENV }}
-  ENV_VAR: ${{ secrets.ENV_VAR }}
-
 jobs:
   build:
+    env:
+      ENV_SEC: ${{ secrets.ENV }}
+      ENV_VAR: ${{ secrets.ENV_VAR }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.9", "3.10"]
+        python-version: ["3.9"]
 
     steps:
       - uses: actions/checkout@v4
